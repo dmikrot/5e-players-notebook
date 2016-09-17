@@ -1,6 +1,12 @@
 <template>
-  <h1>Characters</h1>
-  <ul>
-    <li repeat.for="character of characters">${character.name} is a level ${character.level} ${character.class}</li>
-  </ul>
+  <div slot="content">
+    <h1>Characters</h1>
+    <ul>
+      <li repeat.for="character of characters">
+        <a route-href="route: character; params.bind: {id: character.id}">
+          ${character.name} is a level ${character.level} ${character.class}
+        </a>
+      </li>
+    </ul>
+  </div>
 </template>

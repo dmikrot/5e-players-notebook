@@ -1,0 +1,41 @@
+<template>
+  <!-- Simple header with scrollable tabs. -->
+  <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
+    <header class="mdl-layout__header">
+      <div class="mdl-layout__header-row">
+        <!-- Title -->
+        <span class="mdl-layout-title">${title}</span>
+        <!-- Add spacer, to align navigation to the right -->
+        <div class="mdl-layout-spacer"></div>
+        <!-- Navigation. We hide it in small screens. -->
+        <nav class="mdl-navigation mdl-layout--large-screen-only">
+          <a class="mdl-navigation__link" href="">Link</a>
+          <a class="mdl-navigation__link" href="">Link</a>
+          <a class="mdl-navigation__link" href="">Link</a>
+          <a class="mdl-navigation__link" href="">Link</a>
+        </nav>
+      </div>
+      <!-- Tabs -->
+      <div class="mdl-layout__tab-bar mdl-js-ripple-effect" show.bind="hasTabs">
+        <a repeat.for="tab of tabs" href.bind="tab.href" class="mdl-layout__tab">${tab.title}</a>
+      </div>
+    </header>
+    <div class="mdl-layout__drawer">
+      <span class="mdl-layout-title">Title</span>
+      <nav class="mdl-navigation">
+        <a class="mdl-navigation__link" href="">Link</a>
+        <a class="mdl-navigation__link" href="">Link</a>
+        <a class="mdl-navigation__link" href="">Link</a>
+        <a class="mdl-navigation__link" href="">Link</a>
+      </nav>
+    </div>
+    <main class="mdl-layout__content" show.bind="hasTabs">
+      <section repeat.for="tab of tabs" class="mdl-layout__tab-panel" id.bind="tab.id">
+        <div class="page-content"><slot name.bind="tab.name"></slot></div>
+      </section>
+    </main>
+    <main class="mdl-layout__content" show.bind="!hasTabs">
+      <div class="page-content"><slot name="content"></slot></div>
+    </main>
+  </div>
+</template>
