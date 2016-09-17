@@ -1,4 +1,5 @@
 import environment from './environment';
+import 'material-design-lite';
 
 //Configure Bluebird Promises.
 //Note: You may want to use environment-specific configuration.
@@ -11,7 +12,8 @@ Promise.config({
 export function configure(aurelia) {
   aurelia.use
     .standardConfiguration()
-    .feature('resources');
+    .feature('resources')
+    .plugin('aurelia-mdl-plugin');
 
   if (environment.debug) {
     aurelia.use.developmentLogging();

@@ -132,6 +132,19 @@
             "path": "../node_modules/aurelia-testing/dist/amd",
             "main": "aurelia-testing",
             "env": "dev"
+          },
+          {
+            "name": "material-design-lite",
+            "path": "../node_modules/material-design-lite/dist",
+            "main": "material",
+            "resources": [
+              "material.brown-orange.min.css"
+            ]
+          },
+          {
+            "name": "aurelia-mdl-plugin",
+            "path": "../node_modules/aurelia-mdl-plugin/dist/amd",
+            "main": "index"
           }
         ]
       }
